@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %} Change Profile {% endblock %}
+{% block body %}
+
+{% if changed %}
+<div class="alert alert-sucess">
+    Profile Updated Sucessfully! <a href="{% url 'App_Login:profile' %}">Let's Go Back!</a>
+</div>
+{% endif %}
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <p>Change Password with <a href="{% url 'App_Login:password' %}">this form</a></p>
+    <button type="submit" class="btn btn-warning btn-sm">Change</button>
+</form>
+
+
+
+
+
+
+
+{% endblock %}
